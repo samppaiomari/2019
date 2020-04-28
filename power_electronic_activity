@@ -1,0 +1,34 @@
+%Um reostato controla a potência fornecida por uma fonte DC de 100V
+%para uma carga resistiva de 10 W. A resistência do reostato é variada
+%em etapas de zero a 100 W. Escreva um programa de computador
+%que calcule a potência fornecida pela fonte, a potência dissipada no
+%reostato, a potência consumida pela carga e a eficiência. Tabule os
+%resultados e coloque em uma tabela.
+
+
+i=1
+while i<=101
+    j=i-1
+    vl=100*(10/(j+10))
+  
+  A(i,2)=(10000/(10+j)) %pot da fonte
+  A(i,1)=j %reostato
+  A(i,3)=((100-vl)**2)/j %p1
+  A(i,4)=(vl**2)/10 %pl
+  A(i,5)=A(i,4)/(A(i,3)+A(i,4))
+    
+  i=i+1
+  
+endwhile
+
+X=A(:,1);
+Y1=A(:,2);
+Y2=A(:,3);
+Y3=A(:,4);
+Y4=A(:,5);
+
+
+plot(X,Y1,'m+',X,Y2,'k--',X,Y3,'ro',X,Y4*100,'bx');
+title('Comparação entre potências');
+xlabel('Reostato')
+ylabel('POT-W')
