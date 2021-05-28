@@ -1,0 +1,25 @@
+#TEMP
+def f_to_c():
+  print("Qual a sua temperatura em Fahrenheit?")
+  f1_temp=float(input())
+  c1_temp = round((f1_temp - 32) * 5/9,2)
+  return c1_temp
+
+def c_to_f():
+  print("Qual a sua temperatura em Celsius?")
+  c2_temp=float(input())
+  f2_temp = round((c2_temp * 9/5)+32,2)
+  return f2_temp
+
+print("Qual conversão desejas?")
+print("1-Fahrenheit to Celsius;","2-Celsius to Fahrenheit.")
+resp=int(input())
+
+if resp==1:
+    df=f_to_c()
+    print("Essa temperatura equivale a",df,"Celsius")
+elif resp==2:
+    tf=c_to_f()
+    print("Essa temperatura equivale a",tf,"Fahrenheit")
+else:
+    print("Não temos esta opção!")
